@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+env:
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install
@@ -43,8 +47,8 @@ jobs:
       - name: Analyze code quality with SonarQube
         uses: sonarsource/sonarcloud-github-action@v3
         with:
-          organization: my-sonarcloud-organization
-          project: my-sonarcloud-project
+          token: ${{ env.SONAR_TOKEN }}
+          hostUrl: ${{ env.SONAR_HOST_URL }}
 
   build-docker-image:
     needs: analyze
@@ -61,7 +65,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t ashishvermaarch/my-node-js-app:latest
+        run: docker build -t my-dockerhub-username/my-node-js-app:latest .
 
       - name: Push Docker image to Dockerhub
-        run: docker push ashishvermaarch/my-node-js-app:latest
+        run: docker push my-dockerhub-username/my-node-js-app:latest
