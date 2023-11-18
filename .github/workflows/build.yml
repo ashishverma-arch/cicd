@@ -58,8 +58,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}  # Consider using a personal access token
 
       - name: Build Docker image
-        run: docker build -t ashishvermaarch/my-node-js-app:1.0.0 .  # Add a more descriptive image tag
+        run: docker build -t ashishvermaarch/my-node-js-app:latest .  # Add a more descriptive image tag
 
       - name: Push Docker image to Dockerhub
-        run: docker push ashishvermaarch/my-node-js-app:1.0.0
+        run: docker push ashishvermaarch/my-node-js-app:latest
 
