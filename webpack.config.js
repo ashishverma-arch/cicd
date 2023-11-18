@@ -4,7 +4,8 @@ const webpack = require('webpack');
 module.exports = {
   resolve: {
     fallback: {
-      "http": require.resolve("stream-http")
+      "http": require.resolve("stream-http"),
+      "buffer": false // Add this line
     }
   },
   entry: './src/index.js',
