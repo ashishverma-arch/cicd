@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/fhinkel/nodejs-hello-world#readme",
   "dependencies": {
-    "stream-http": "^3.2.0"
+    "stream-http": "^3.2.0",
+    "webpack": "^5.89.0"
   }
 }
