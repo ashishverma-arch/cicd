@@ -61,8 +61,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t ashishvermaarch/my-node-js-app:latest .
+        run: docker build -t ashishvermaarch/my-node-js-app:latest
 
       - name: Push Docker image to Dockerhub
         run: docker push ashishvermaarch/my-node-js-app:latest
-        
