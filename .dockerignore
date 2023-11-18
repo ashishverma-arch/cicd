@@ -1,4 +1,6 @@
+node_modules
 Dockerfile
 LICENSE
 README.md
 sonar-project.properties
+webpack.config.js
