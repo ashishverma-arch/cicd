@@ -45,7 +45,7 @@ jobs:
           path: dist
 
       - name: Analyze code quality with SonarQube
-        uses: sonarsource/sonarcloud-github-action@v3
+        uses: sonarsource/sonarcloud-github-action@master
         with:
           token: ${{ env.SONAR_TOKEN }}
           hostUrl: ${{ env.SONAR_HOST_URL }}
